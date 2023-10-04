@@ -1,32 +1,35 @@
 import java.util.Scanner;
-
-public class AscendingOrder {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the number of elements: ");
-        int n = scanner.nextInt();
-
-        int[] arr = new int[n];
-
-        System.out.println("Enter the elements:");
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+public class AscendingOrder 
+{
+    public static void main(String[] args) 
+    {
+        int n, temp;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the size of array:");
+        n = s.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for (int i = 0; i < n; i++) 
+        {
+            a[i] = s.nextInt();
         }
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+        for (int i = 0; i < n; i++) 
+        {
+            for (int j = i + 1; j < n; j++) 
+            {
+                if (a[i] > a[j]) 
+                {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
                 }
             }
         }
-
-        System.out.println("Array in ascending order:");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+        System.out.print("Ascending Order:");
+        for (int i = 0; i < n - 1; i++) 
+        {
+            System.out.print(a[i] + ",");
         }
+        System.out.print(a[n - 1]);
     }
 }
